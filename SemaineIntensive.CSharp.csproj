@@ -77,7 +77,10 @@
   <ItemGroup>
     <Compile Include="Assets\CameraTravelling.cs" />
     <Compile Include="Assets\DragTransform.cs" />
+    <Compile Include="Assets\Entities.cs" />
     <Compile Include="Assets\GameManager.cs" />
+    <Compile Include="Assets\PanelScript.cs" />
+    <Compile Include="Assets\SlotScript.cs" />
     <Compile Include="Assets\Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

@@ -15,10 +15,10 @@ class DragTransform : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     public void OnBeginDrag(PointerEventData eventData)
     {
         itemBeingDragged = gameObject;
-        startPosition = transform.position;
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         itemBeingDragged.transform.SetParent(Editor.transform);
+        itemBeingDragged.transform.localScale = new Vector3(1, 1, 0);
     }
 
     #endregion
@@ -38,10 +38,10 @@ class DragTransform : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     {
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent == startParent)
+        /*if (transform.parent == startParent)
         {
             transform.position = startPosition;
-        }
+        }*/
     }
     #endregion
 }

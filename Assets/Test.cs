@@ -1,85 +1,91 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour {
 
     public bool isJumping;
     Vector3 startPosition;
     Rigidbody m_rigidbody;
+    bool isDashing;
+
+    public string inputLeft;
+    public string inputRight;
+    public string dashKey;
+    public string jumpKey;
 
     public GameObject canvas;
 
-    bool doubleJump;
+    public Entities player;
 
-    public int speed;
-    public int jumpHeight;
+    float translateLat;
 
-    float gravity = 20;
-
-    float newDash;
-
-    public float dashTimer = 0.5f;
-
-    bool isDashing;
 
 	// Use this for initialization
 	void Start () {
-        
+
         m_rigidbody = GetComponent<Rigidbody>();
         startPosition = transform.position;
 
-        speed = 10;
-        jumpHeight = 10;
+        player = new Entities();
+
+        inputLeft = "q";
+        inputRight = "d";
+        dashKey = "left shift";
+        jumpKey = "space";
 
     }
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        Debug.Log(gravity);
-
-        m_rigidbody.AddForce(Vector3.down * (gravity));
 
 
+        m_rigidbody.AddForce(Vector3.down * (player.getGravity()));
+        
 
         if (!canvas.activeInHierarchy)
         {
-            if(Input.GetAxisRaw("Horizontal") == 1)
-            {
-                moveRight();
-            }
-            if(Input.GetAxisRaw("Horizontal") == -1)
+            if (player.getCanMoveLeft() && Input.GetKey(inputLeft))
             {
                 moveLeft();
+
             }
+            if (player.getCanMoveRight() && Input.GetKey(inputRight))
+            {
+                Debug.Log("toto");
+                moveRight();
+            }
+            
+
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(dashKey))
         {
             StartCoroutine("Dash");
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(jumpKey))
         {
             Jump();
         }
 
-        if (isDashing && newDash - 0.5f < Time.time)
-        {
-            isDashing = false;
-        }
 	}
 
     void moveLeft()
     {
 
-        transform.Translate(new Vector3( -1 * Time.deltaTime * speed, 0, 0));
+        transform.Translate(new Vector3(-1 * Time.deltaTime * player.getSpeed(), 0, 0));
+
     }
+
 
     void moveRight()
     {
-        transform.Translate(new Vector3( 1 * Time.deltaTime * speed, 0, 0));
+
+        transform.Translate(new Vector3(1 * Time.deltaTime * player.getSpeed(), 0, 0));
+
     }
 
 
@@ -90,13 +96,13 @@ public class Test : MonoBehaviour {
         if (!isJumping)
         {
 
-            m_rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            m_rigidbody.AddForce(Vector3.up * player.getJumpHeight(), ForceMode.Impulse);
             isJumping = true;
         }
-        else if(isJumping && !doubleJump)
+        else if(isJumping && !player.getDoubleJump())
         {
-            m_rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
-            doubleJump = true;
+            m_rigidbody.AddForce(Vector3.up * player.getJumpHeight(), ForceMode.Impulse);
+            player.setDoubleJump(true);
         }
 
     }
@@ -104,20 +110,24 @@ public class Test : MonoBehaviour {
 
     IEnumerator Dash()
     {
-        /*
-        Debug.Log("toto");
-        m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
-        newDash = Time.time + 1;
-        
-        */
+
+
+
         isDashing = true;
-        gravity = 0;
+        player.setGravity(0);
         m_rigidbody.velocity = Vector3.zero;
-        m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
+        if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            m_rigidbody.AddForce(Vector3.left * 15, ForceMode.Impulse);
+        }
+        else
+        {
+            m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
+        }
         yield return new WaitForSeconds(0.5f);
         m_rigidbody.velocity = Vector3.zero;
         isDashing = false;
-        gravity = 20;
+        player.setGravity(20);
 
 
     }
@@ -128,7 +138,10 @@ public class Test : MonoBehaviour {
         if(other.transform.tag == "floor")
         {
             isJumping = false;
-            doubleJump = false;
+            player.setDoubleJump(false);
         }
     }
+
+
+
 }
