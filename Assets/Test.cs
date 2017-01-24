@@ -15,7 +15,13 @@ public class Test : MonoBehaviour {
     public int speed;
     public int jumpHeight;
 
-    float translateLat;
+    float gravity = 20;
+
+    float newDash;
+
+    public float dashTimer = 0.5f;
+
+    bool isDashing;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +37,11 @@ public class Test : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        m_rigidbody.AddForce(Vector3.down * (jumpHeight * 2));
+
+
+        m_rigidbody.AddForce(Vector3.down * (gravity));
+
+
 
         if (!canvas.activeInHierarchy)
         {
@@ -45,7 +55,16 @@ public class Test : MonoBehaviour {
             }
         }
 
-        if(Input.GetKeyDown("space"))Jump();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine("Dash");
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            Jump();
+        }
+
 	}
 
     void moveLeft()
@@ -66,7 +85,7 @@ public class Test : MonoBehaviour {
 
         if (!isJumping)
         {
-            Debug.Log("toto");
+
             m_rigidbody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             isJumping = true;
         }
@@ -77,6 +96,32 @@ public class Test : MonoBehaviour {
         }
 
     }
+
+
+    IEnumerator Dash()
+    {
+
+
+
+        isDashing = true;
+        gravity = 0;
+        m_rigidbody.velocity = Vector3.zero;
+        if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            m_rigidbody.AddForce(Vector3.left * 15, ForceMode.Impulse);
+        }
+        else
+        {
+            m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
+        }
+        yield return new WaitForSeconds(0.5f);
+        m_rigidbody.velocity = Vector3.zero;
+        isDashing = false;
+        gravity = 20;
+
+
+    }
+
 
     void OnCollisionEnter(Collision other)
     {
