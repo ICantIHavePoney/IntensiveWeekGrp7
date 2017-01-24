@@ -66,11 +66,33 @@ public class Test : MonoBehaviour
 	{
 
 		transform.Translate (new Vector3 (-1 * Time.deltaTime * speed, 0, 0));
+		GameObject.Find ("Scarf").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("Head").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("FootLeft").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("LegLeft").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("Aine").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("Planche").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("Buste").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("FootRight").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("UpLegRight").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("Planche_5").GetComponent<SpriteRenderer>().flipX = true;
+		GameObject.Find ("PunchLeft").GetComponent<SpriteRenderer>().flipX = true;
 	}
 
 	void moveRight ()
 	{
 		transform.Translate (new Vector3 (1 * Time.deltaTime * speed, 0, 0));
+		GameObject.Find ("Scarf").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("Head").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("FootLeft").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("LegLeft").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("Aine").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("Planche").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("Buste").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("FootRight").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("UpLegRight").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("Planche_5").GetComponent<SpriteRenderer>().flipX = false;
+		GameObject.Find ("PunchLeft").GetComponent<SpriteRenderer>().flipX = false;
 	}
 
 

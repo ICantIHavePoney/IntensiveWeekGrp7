@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: e2706910a18ee8e44abac3d7ebc3d68a
-timeCreated: 1485285531
-licenseType: Pro
+timeCreated: 1485298159
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Planche_0
@@ -38,7 +38,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -62,17 +62,17 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,12 +84,12 @@ TextureImporter:
       name: Planche_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 1148
-        width: 473
-        height: 290
+        x: 80
+        y: 1130
+        width: 504
+        height: 324
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -97,12 +97,12 @@ TextureImporter:
       name: Planche_1
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1243
-        width: 200
-        height: 99
+        x: 668
+        y: 1231
+        width: 229
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -110,12 +110,12 @@ TextureImporter:
       name: Planche_2
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 1052
-        width: 381
-        height: 286
+        x: 1136
+        y: 1041
+        width: 414
+        height: 314
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -123,12 +123,12 @@ TextureImporter:
       name: Planche_3
       rect:
         serializedVersion: 2
-        x: 769
-        y: 734
-        width: 276
-        height: 250
+        x: 759
+        y: 719
+        width: 299
+        height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -136,12 +136,12 @@ TextureImporter:
       name: Planche_4
       rect:
         serializedVersion: 2
-        x: 1220
-        y: 694
-        width: 244
-        height: 264
+        x: 1206
+        y: 683
+        width: 275
+        height: 286
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -149,12 +149,12 @@ TextureImporter:
       name: Planche_5
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 742
-        width: 112
-        height: 118
+        x: 1644
+        y: 726
+        width: 146
+        height: 147
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -162,12 +162,12 @@ TextureImporter:
       name: Planche_6
       rect:
         serializedVersion: 2
-        x: 1309
-        y: 480
-        width: 107
-        height: 119
+        x: 1296
+        y: 466
+        width: 132
+        height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -175,12 +175,12 @@ TextureImporter:
       name: Planche_7
       rect:
         serializedVersion: 2
-        x: 1009
-        y: 301
-        width: 176
-        height: 165
+        x: 999
+        y: 287
+        width: 198
+        height: 194
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -188,12 +188,12 @@ TextureImporter:
       name: Planche_8
       rect:
         serializedVersion: 2
-        x: 1531
-        y: 261
-        width: 170
-        height: 177
+        x: 1516
+        y: 253
+        width: 199
+        height: 199
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -201,12 +201,12 @@ TextureImporter:
       name: Planche_9
       rect:
         serializedVersion: 2
-        x: 769
-        y: 123
-        width: 112
-        height: 109
+        x: 756
+        y: 113
+        width: 137
+        height: 131
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -214,12 +214,12 @@ TextureImporter:
       name: Planche_10
       rect:
         serializedVersion: 2
-        x: 1795
-        y: 80
-        width: 121
-        height: 99
+        x: 1782
+        y: 69
+        width: 147
+        height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
