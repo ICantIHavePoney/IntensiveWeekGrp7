@@ -37,7 +37,7 @@ public class Test : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        Debug.Log(gravity);
+
 
         m_rigidbody.AddForce(Vector3.down * (gravity));
 
@@ -65,10 +65,6 @@ public class Test : MonoBehaviour {
             Jump();
         }
 
-        if (isDashing && newDash - 0.5f < Time.time)
-        {
-            isDashing = false;
-        }
 	}
 
     void moveLeft()
@@ -104,16 +100,20 @@ public class Test : MonoBehaviour {
 
     IEnumerator Dash()
     {
-        /*
-        Debug.Log("toto");
-        m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
-        newDash = Time.time + 1;
-        
-        */
+
+
+
         isDashing = true;
         gravity = 0;
         m_rigidbody.velocity = Vector3.zero;
-        m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
+        if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            m_rigidbody.AddForce(Vector3.left * 15, ForceMode.Impulse);
+        }
+        else
+        {
+            m_rigidbody.AddForce(Vector3.right * 15, ForceMode.Impulse);
+        }
         yield return new WaitForSeconds(0.5f);
         m_rigidbody.velocity = Vector3.zero;
         isDashing = false;
