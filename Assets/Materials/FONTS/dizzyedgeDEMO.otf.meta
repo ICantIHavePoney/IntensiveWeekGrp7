@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d53ae75fbf9bfbb4eb760d8e22fcbc35
+timeCreated: 1485342224
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Dizzy Edge DEMO
+  fontNames:
+  - Dizzy Edge DEMO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
