@@ -6,6 +6,10 @@ using DG.Tweening;
 public class DisappearingPlatform : MonoBehaviour
 {
 	public float duration;
+	public float goToX;
+	public float backToX;
+	public float goToY;
+	public float backToY;
 	public float goToZ;
 	public float backToZ;
 
@@ -29,9 +33,9 @@ public class DisappearingPlatform : MonoBehaviour
 	IEnumerator Move ()
 	{
 		started = false;
-		transform.DOLocalMoveZ (goToZ, duration);
+		transform.DOLocalMove (new Vector3 (transform.position.x + goToX, transform.position.y + goToY, transform.position.z + goToZ), duration);
 		yield return new WaitForSeconds (5f);
-		transform.DOLocalMoveZ (backToZ, duration);
+		transform.DOLocalMove (new Vector3 (transform.position.x + backToZ, transform.position.y + backToZ, transform.position.z + backToZ), duration);
 		yield return new WaitForSeconds (5f);
 		started = true;
 		transform.DOKill ();
